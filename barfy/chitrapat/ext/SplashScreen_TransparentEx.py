@@ -3,8 +3,8 @@ import time
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QDesktopWidget
-from barfi.chitrapat.SplashConfig import SplashConfig
-from barfi.chitrapat.SplashScreen_Transparent import SplashScreen_Transparent
+from barfy.chitrapat.SplashConfig import SplashConfig
+from barfy.chitrapat.SplashScreen_Transparent import SplashScreen_Transparent
 
 
 class SplashScreen_TransparentEx(SplashScreen_Transparent):

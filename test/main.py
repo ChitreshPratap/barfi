@@ -1,8 +1,8 @@
 import sys
 from PyQt5.QtWidgets import QApplication
-from barfi.chitrapat.SplashConfig import SplashConfig
-from barfi.chitrapat.ext.SplashScreen_DarkEx import SplashScreen_DarkEx
-from barfi.chitrapat.ext.SplashScreen_TransparentEx import SplashScreen_TransparentEx
+from barfy.chitrapat.SplashConfig import SplashConfig
+from barfy.chitrapat.ext.SplashScreen_DarkEx import SplashScreen_DarkEx
+from barfy.chitrapat.ext.SplashScreen_TransparentEx import SplashScreen_TransparentEx
 
 def splashScreenDarkDemoEx():
     app = QApplication(sys.argv)

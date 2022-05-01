@@ -5,8 +5,8 @@ from PyQt5 import QtGui, QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QDesktopWidget
 
-from barfi.chitrapat.SplashConfig import SplashConfig
-from barfi.chitrapat.SplashScreen_Dark import SplashScreen_Dark
+from barfy.chitrapat.SplashConfig import SplashConfig
+from barfy.chitrapat.SplashScreen_Dark import SplashScreen_Dark
 
 class SplashScreen_DarkEx(SplashScreen_Dark):
     

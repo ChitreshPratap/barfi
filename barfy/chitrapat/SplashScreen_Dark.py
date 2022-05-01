@@ -12,8 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QSplashScreen, QApplication
 # import resources
-from barfi.chitrapat.SplashScreen_Transparent import SplashScreen_Transparent
-from barfi.chitrapat.ext.SplashScreen_TransparentEx import SplashScreen_TransparentEx
+from barfy.chitrapat.SplashScreen_Transparent import SplashScreen_Transparent
+from barfy.chitrapat.ext.SplashScreen_TransparentEx import SplashScreen_TransparentEx
 
 
 class SplashScreen_Dark(QSplashScreen):
