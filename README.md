@@ -1,15 +1,14 @@
 # barfi
-
-This package is used to show different sweet splash screens. 
+<hr>
+This is python package is used to for different sweet splash screens. 
 This package uses <b>PyQt5</b> and is application only for the applications,
 which are build using <b>PyQt5</b>
 <hr>
-
 <h4>Installing</h4>
 <code>pip install barfi</code>
 
 
-####Available Splash Screen Class
+#### Available Splash Screen Class
     - SplashScreen_TransparentEx
     - SplashScreen_DarkEx
 
