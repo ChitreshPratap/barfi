@@ -1,4 +1,4 @@
-#barfi
+# barfi
 
 This package is used to show different sweet splash screens. 
 This package uses <b>PyQt5</b> and is application only for the applications,
