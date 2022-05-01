@@ -14,6 +14,15 @@ class SplashConfig:
         self._appTagLineFontSize=None
         self._appTagLineFontColor=None
         self._progressBarColor=None
+        self._appBackgroundColor=None
+
+    def getAppBackgroundColor(self)->str:
+        color=self._appBackgroundColor
+        return color
+
+    def setAppBackgroundColor(self, color:str):
+        self._appBackgroundColor=color
+        return self
 
     def getProgressBarColor(self)->str:
         color= self._progressBarColor
