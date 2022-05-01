@@ -8,6 +8,62 @@ class SplashConfig:
         self._companyName=""
         self._companyIcon=""
 
+        self._appIconSize=None
+        self._appTitleFontSize=None
+        self._appTitleFontColor=None
+        self._appTagLineFontSize=None
+        self._appTagLineFontColor=None
+        self._progressBarColor=None
+
+    def getProgressBarColor(self)->str:
+        color= self._progressBarColor
+        return color
+
+    def setProgressBarColor(self,progressBarColor:str):
+        self._progressBarColor=progressBarColor
+        return self
+
+    def getAppTagLineFontColor(self):
+        color=self._appTagLineFontColor
+        return color
+
+    def setAppTagLineFontColor(self,fontColor:str):
+        self._appTagLineFontColor=fontColor
+        return self
+
+    def getAppTagLineFontSize(self)->int:
+        fontSize=self._appTagLineFontSize
+        return fontSize
+
+    def setAppTagLineFontSize(self,fontSize:int):
+        self._appTagLineFontSize=fontSize
+        return self
+
+    def getAppTitleFontColor(self)->str:
+        color=self._appTitleFontColor
+        return color
+
+    def setAppTitleFontColor(self,fontColor:str):
+        self._appTitleFontColor=fontColor
+        return self
+
+    def getAppTitleFontSize(self)->int:
+        size=self._appTitleFontSize
+        return size
+
+    def setAppTitleFontSize(self,fontSize:int):
+        self._appTitleFontSize=fontSize
+        return self
+
+    def setAppIconSize(self,width:int,height:int):
+        self._appIconSize=(width,height)
+        return self
+
+    def getAppIconSize(self)->tuple:
+        iconSize=self._appIconSize
+        return iconSize
+
+
     def setAppTitle(self,appTitle:str="App Title"):
         self._appTitle=appTitle
         return self

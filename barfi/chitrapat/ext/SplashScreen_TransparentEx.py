@@ -1,11 +1,8 @@
 import sys
 import time
-
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QDesktopWidget
-# from src.userform import Resources
-# from src.userform.SplashScreen_Transparent import SplashScreen_Transparent
 from barfi.chitrapat.SplashConfig import SplashConfig
 from barfi.chitrapat.SplashScreen_Transparent import SplashScreen_Transparent
 
@@ -21,13 +18,25 @@ class SplashScreen_TransparentEx(SplashScreen_Transparent):
         title=splashConfig.getAppTitle()
         titleDesc=splashConfig.getAppTagLine()
         appIconPath=splashConfig.getAppIcon()
-        self.label_2.setText("""<html><head/><body><p align="center"><span style=" font-size:36pt; font-weight:600; color:#03468b;">{title}</span></p></body></html>""".format(title=title))
+
+        appIconSize=(150,150) if splashConfig.getAppIconSize() is None else splashConfig.getAppIconSize()
+        appTitleFontSize=str(36) if splashConfig.getAppTitleFontSize() is None else str(splashConfig.getAppTitleFontSize())
+        appTitleFontColor="#03468b" if splashConfig.getAppTitleFontColor() is None else splashConfig.getAppTitleFontColor()
+        appTagLineFontSize=str(18) if splashConfig.getAppTagLineFontSize() is None else str(splashConfig.getAppTagLineFontSize())
+        appTagLineFontColor="#0570da" if splashConfig.getAppTagLineFontColor() is None else splashConfig.getAppTagLineFontColor()
+        progressBarColor="rgb(1,136,166)" if splashConfig.getProgressBarColor() is None else splashConfig.getProgressBarColor()
+
+
+        self.label_2.setText("""<html><head/><body><p align="center"><span style=" font-size:{appTitleFontSize}pt; font-weight:600; color:{appTitleFontColor};">{title}</span></p></body></html>""".format(title=title,appTitleFontSize=appTitleFontSize,appTitleFontColor=appTitleFontColor))
         self.label_2.setStyleSheet("background-color: transparent;")
-        self.label_3.setText("""<html><head/><body><p align="center"><span style=" font-size:18pt; text-decoration: underline; color:#0570da;">{titleDesc}</span></p></body></html>""".format(titleDesc=titleDesc))
+        self.label_3.setText("""<html><head/><body><p align="center"><span style=" font-size:{appTagLineFontSize}pt; text-decoration: underline; color:{appTagLineFontColor};">{titleDesc}</span></p></body></html>""".format(titleDesc=titleDesc,appTagLineFontSize=appTagLineFontSize,appTagLineFontColor=appTagLineFontColor))
         self.label_3.setStyleSheet("background-color: transparent;")
+
         self.label.setPixmap(QtGui.QPixmap(appIconPath))
         self.label.setScaledContents(True)
         self.label.setStyleSheet("background-color: transparent;")
+        self.label.setMinimumSize(QtCore.QSize(appIconSize[0], appIconSize[1]))
+        self.label.setMaximumSize(QtCore.QSize(appIconSize[0], appIconSize[1]))
 
         self._app=app
         self.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint)
@@ -41,7 +50,7 @@ class SplashScreen_TransparentEx(SplashScreen_Transparent):
             }
 
             QProgressBar::chunk {
-                background-color: rgb(1,136,166);                
+                background-color: """+progressBarColor+ """ ;                
                 width: 20px;
             }
         """
