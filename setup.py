@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='barfy',
     version='1.0.0',
-    packages=['test', 'barfi', 'barfi.chitrapat', 'barfi.chitrapat.ext'],
+    packages=['test', 'barfy', 'barfy.chitrapat', 'barfy.chitrapat.ext'],
     url='https://github.com/ChitreshPratap/barfi/blob/main/README.md',
     license='https://github.com/ChitreshPratap/barfi/blob/main/LICENSE.txt',
     author='AbhilashChitresh',

@@ -1,4 +1,4 @@
-# barfi
+# barfy
 
 This is python package is used to for different sweet splash screens. 
 This package uses <b>PyQt5</b> and is application only for the applications,
@@ -8,7 +8,7 @@ which are build using <b>PyQt5</b>
 
 <hr>
 <h4>Installing</h4>
-<code>pip install barfi</code>
+<code>pip install barfy</code>
 
 
 
@@ -25,8 +25,8 @@ Example 1
 
     import sys
     from PyQt5.QtWidgets import QApplication
-    from barfi.chitrapat.SplashConfig import SplashConfig
-    from barfi.chitrapat.ext.SplashScreen_DarkEx import SplashScreen_DarkEx
+    from barfy.chitrapat.SplashConfig import SplashConfig
+    from barfy.chitrapat.ext.SplashScreen_DarkEx import SplashScreen_DarkEx
 
     def splashScreenDarkDemoEx():
         app = QApplication(sys.argv)
@@ -46,8 +46,8 @@ Example 2:
 
     import sys
     from PyQt5.QtWidgets import QApplication
-    from barfi.chitrapat.SplashConfig import SplashConfig
-    from barfi.chitrapat.ext.SplashScreen_TransparentEx import SplashScreen_TransparentEx
+    from barfy.chitrapat.SplashConfig import SplashConfig
+    from barfy.chitrapat.ext.SplashScreen_TransparentEx import SplashScreen_TransparentEx
 
     def splashScreenTransparentEx():
         app = QApplication(sys.argv)
@@ -70,8 +70,8 @@ Example 3
 
     import sys
     from PyQt5.QtWidgets import QApplication
-    from barfi.chitrapat.SplashConfig import SplashConfig
-    from barfi.chitrapat.ext.SplashScreen_TransparentEx import SplashScreen_TransparentEx
+    from barfy.chitrapat.SplashConfig import SplashConfig
+    from barfy.chitrapat.ext.SplashScreen_TransparentEx import SplashScreen_TransparentEx
 
     def example1():
         app = QApplication(sys.argv)
