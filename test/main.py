@@ -3,11 +3,15 @@ from PyQt5.QtWidgets import QApplication
 from barfy.chitrapat.ext.SplashScreen_DarkEx import SplashScreen_DarkEx
 from barfy.chitrapat.ext.SplashScreen_GrowingEx import SplashScreen_GrowingEx
 from barfy.chitrapat.ext.SplashScreen_TransparentEx import SplashScreen_TransparentEx
+from test.TestingWindow import TestingWindow
+
 
 def splashScreenDarkDemoEx():
     app = QApplication(sys.argv)
     splash = SplashScreen_DarkEx(app,5,appIconPath = r"C:\Users\DELL\Desktop\calendarPng.png")
-    splash.show()
+    testWindow=TestingWindow()
+    testWindow.show()
+    splash.finish(testWindow)
     app.exec()
 
 def splashScreenGrowingEx():
@@ -24,6 +28,6 @@ def splashScreenTransparentEx():
 
 
 if __name__ == '__main__':
-    # splashScreenDarkDemoEx()
+    splashScreenDarkDemoEx()
     # splashScreenTransparentEx()
-    splashScreenGrowingEx()
+    # splashScreenGrowingEx()
