@@ -16,7 +16,7 @@ def splashScreenDarkDemoEx():
 
 def splashScreenGrowingEx():
     app = QApplication(sys.argv)
-    splash = SplashScreen_GrowingEx(app,3,appIconPath = r"C:\Users\DELL\Desktop\calendarPng.png",appTitle="Ffilfo")
+    splash = SplashScreen_GrowingEx(app,5,appIconPath = r"C:\Users\DELL\Desktop\calendarPng.png",appTitle="Ffilfo")
     testWindow=TestingWindow()
     testWindow.show()
     splash.finish(testWindow)

@@ -7,7 +7,7 @@ from barfy.chitrapat.SplashScreen_Growing import SplashScreen_Growing
 
 class SplashScreen_GrowingEx(SplashScreen_Growing):
 
-    def __init__(self,app=None,timeoutSeconds:int=2,
+    def __init__(self,app=None,timeoutSeconds:int=4,
                 appIconPath = r"C:\Users\DELL\Desktop\calendarPng.png",
                 appTitle:str="App Title",
                 appTitleFontSize:int=58,
