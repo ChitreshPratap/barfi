@@ -16,18 +16,22 @@ def splashScreenDarkDemoEx():
 
 def splashScreenGrowingEx():
     app = QApplication(sys.argv)
-    splash = SplashScreen_GrowingEx(app,3,appIconPath = r"C:\Users\DELL\Desktop\calendarPng.png")
-    splash.show()
+    splash = SplashScreen_GrowingEx(app,3,appIconPath = r"C:\Users\DELL\Desktop\calendarPng.png",appTitle="Ffilfo")
+    testWindow=TestingWindow()
+    testWindow.show()
+    splash.finish(testWindow)
     app.exec()
 
 def splashScreenTransparentEx():
     app = QApplication(sys.argv)
-    splash = SplashScreen_TransparentEx(app,3,appIconPath = r"C:\Users\DELL\Desktop\calendarPng.png")
-    splash.show()
+    splash = SplashScreen_TransparentEx(app,7,appIconPath = r"C:\Users\DELL\Desktop\calendarPng.png")
+    testWindow=TestingWindow()
+    testWindow.show()
+    splash.finish(testWindow)
     app.exec()
 
 
 if __name__ == '__main__':
-    splashScreenDarkDemoEx()
+    # splashScreenDarkDemoEx()
     # splashScreenTransparentEx()
-    # splashScreenGrowingEx()
+    splashScreenGrowingEx()

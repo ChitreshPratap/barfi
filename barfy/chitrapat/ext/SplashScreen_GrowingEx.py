@@ -58,7 +58,6 @@ class SplashScreen_GrowingEx(SplashScreen_Growing):
         self.setAttribute(Qt.WA_TranslucentBackground)
         self._labelTagLine.setAttribute(Qt.WA_TranslucentBackground)
 
-
         self._app=app
         self.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint)
         self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint)
@@ -72,12 +71,11 @@ class SplashScreen_GrowingEx(SplashScreen_Growing):
         # print(geo)
 
         self.anim = QPropertyAnimation(self._labelAppIcon, b"geometry")
-        # self.anim.setDuration(3000)
+        # print(timeoutSeconds)
         animDuration=1000*timeoutSeconds
+        # print(animDuration)
         self.anim.setDuration(animDuration)
-        # self.anim.setStartValue(QRect(150, 30, 100, 100))
         self.anim.setStartValue(QRect(initialPositionX,initialPositionY, initialWidth, initialHeight))
-        # self.anim.setEndValue(QRect(150, 30, 200, 200))
         self.anim.setEndValue(QRect(int(initialPositionX-diffWidth), int(initialPositionY-diffHeight), finalWidth, finalHeight))
         self.anim.start()
 
@@ -85,8 +83,15 @@ class SplashScreen_GrowingEx(SplashScreen_Growing):
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
+        timeToWait=time.time()+timeoutSeconds
+        # print(time.time(),timeToWait,timeoutSeconds)
         self.show()
 
+        while timeToWait >=time.time():
+            # print("Waiting")
+            if self._app is not None:
+                self._app.processEvents()
+        # print(timeToWait,time.time())
         # for i in range(1, 11):
         #     self.progressBar.setValue(i)
         #     t = time.time()
@@ -95,7 +100,9 @@ class SplashScreen_GrowingEx(SplashScreen_Growing):
         #             self._app.processEvents()
 
         # Simulate something that takes time
-        time.sleep(timeoutSeconds)
+        # print(time.time_ns())
+        # time.sleep(1)
+        # print(time.time_ns())
 
     def finish(self,mainWindow):
         super(SplashScreen_GrowingEx, self).finish(mainWindow)
