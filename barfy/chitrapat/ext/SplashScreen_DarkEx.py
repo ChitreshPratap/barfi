@@ -10,24 +10,29 @@ from barfy.chitrapat.SplashScreen_Dark import SplashScreen_Dark
 
 class SplashScreen_DarkEx(SplashScreen_Dark):
     
-    def __init__(self,app=None,timeoutSeconds:int=10,splashConfig:SplashConfig=None):
+    def __init__(self,app=None,timeoutSeconds:int=10,
+                 appIconPath:str="",
+                 appIconSize:tuple=(180,70),
+                 appTitle: str = "App Title",
+                 appTitleFontSize: int = 36,
+                 appTitleFontColor="#ffffff",
+                 appTagLine="App Tag Line",
+                 appTagLineFontSize: int = 18,
+                 appTagLineFontColor="#bfbfbf",
+                 progressBarColor="rgb(1,136,166)",
+                 appBackgroundColor="rgb(54, 43, 46)"
+                 ):
         super(SplashScreen_DarkEx, self).__init__()
 
-        if splashConfig is None:
-            splashConfig=SplashConfig()
-            splashConfig.setAppTitle("App Title").setAppTagLine("Application Tag Line").setCompanyName("Company Name")
+        # if splashConfig is None:
+        #     splashConfig=SplashConfig()
+        #     splashConfig.setAppTitle("App Title").setAppTagLine("Application Tag Line").setCompanyName("Company Name")
 
-        title=splashConfig.getAppTitle()
-        titleDesc=splashConfig.getAppTagLine()
-        appIconPath=splashConfig.getAppIcon()
-
-        appIconSize=(180,70) if splashConfig.getAppIconSize() is None else splashConfig.getAppIconSize()
-        appTitleFontSize=str(36) if splashConfig.getAppTitleFontSize() is None else str(splashConfig.getAppTitleFontSize())
-        appTitleFontColor="#ffffff" if splashConfig.getAppTitleFontColor() is None else splashConfig.getAppTitleFontColor()
-        appTagLineFontSize=str(18) if splashConfig.getAppTagLineFontSize() is None else str(splashConfig.getAppTagLineFontSize())
-        appTagLineFontColor="#bfbfbf" if splashConfig.getAppTagLineFontColor() is None else splashConfig.getAppTagLineFontColor()
-        progressBarColor = "rgb(1,136,166)" if splashConfig.getProgressBarColor() is None else splashConfig.getProgressBarColor()
-        appBackgroundColor="rgb(54, 43, 46)" if splashConfig.getAppBackgroundColor() is None else splashConfig.getAppBackgroundColor()
+        title=appTitle
+        titleDesc=appTagLine
+        appIconPath=appIconPath
+        appTitleFontSize=str(appTitleFontSize)
+        appTagLineFontSize=str(appTagLineFontSize)
 
         self.label_2.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:{appTitleFontSize}pt; font-weight:600; color:{appTitleFontColor};\">{appName}</span></p></body></html>".format(appName=title,appTitleFontSize=appTitleFontSize,appTitleFontColor=appTitleFontColor))
         self.label_3.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:{appTagLineFontSize}pt; text-decoration: underline; color:{appTagLineFontColor};\">{appTagLine}</span></p></body></html>".format(appTagLine=titleDesc,appTagLineFontSize=appTagLineFontSize,appTagLineFontColor=appTagLineFontColor))

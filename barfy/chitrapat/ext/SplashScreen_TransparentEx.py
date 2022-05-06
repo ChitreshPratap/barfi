@@ -6,26 +6,26 @@ from PyQt5.QtWidgets import QApplication, QDesktopWidget
 from barfy.chitrapat.SplashConfig import SplashConfig
 from barfy.chitrapat.SplashScreen_Transparent import SplashScreen_Transparent
 
-
 class SplashScreen_TransparentEx(SplashScreen_Transparent):
 
-    def __init__(self,app=None,timeoutSeconds:int=10,splashConfig:SplashConfig=None):
+    def __init__(self,app=None,timeoutSeconds:int=10,
+                 appIconPath:str="",
+                 appIconSize:tuple=(150,150),
+                 appTitle: str = "App Title",
+                 appTitleFontSize: int = 36,
+                 appTitleFontColor="#03468b",
+                 appTagLine="App Tag Line",
+                 appTagLineFontSize: int = 18,
+                 appTagLineFontColor="#0570da",
+                 progressBarColor="rgb(1,136,166)",
+                 ):
         super(SplashScreen_TransparentEx, self).__init__()
-        if splashConfig is None:
-            splashConfig=SplashConfig()
-            splashConfig.setAppTitle("App Title").setAppTagLine("Application Tag Line").setCompanyName("Company Name")
 
-        title=splashConfig.getAppTitle()
-        titleDesc=splashConfig.getAppTagLine()
-        appIconPath=splashConfig.getAppIcon()
-
-        appIconSize=(150,150) if splashConfig.getAppIconSize() is None else splashConfig.getAppIconSize()
-        appTitleFontSize=str(36) if splashConfig.getAppTitleFontSize() is None else str(splashConfig.getAppTitleFontSize())
-        appTitleFontColor="#03468b" if splashConfig.getAppTitleFontColor() is None else splashConfig.getAppTitleFontColor()
-        appTagLineFontSize=str(18) if splashConfig.getAppTagLineFontSize() is None else str(splashConfig.getAppTagLineFontSize())
-        appTagLineFontColor="#0570da" if splashConfig.getAppTagLineFontColor() is None else splashConfig.getAppTagLineFontColor()
-        progressBarColor="rgb(1,136,166)" if splashConfig.getProgressBarColor() is None else splashConfig.getProgressBarColor()
-
+        title=appTitle
+        titleDesc=appTagLine
+        appIconPath=appIconPath
+        appTitleFontSize=str(appTitleFontSize)
+        appTagLineFontSize=str(appTagLineFontSize)
 
         self.label_2.setText("""<html><head/><body><p align="center"><span style=" font-size:{appTitleFontSize}pt; font-weight:600; color:{appTitleFontColor};">{title}</span></p></body></html>""".format(title=title,appTitleFontSize=appTitleFontSize,appTitleFontColor=appTitleFontColor))
         self.label_2.setStyleSheet("background-color: transparent;")
@@ -61,7 +61,6 @@ class SplashScreen_TransparentEx(SplashScreen_Transparent):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
         self.show()
-
 
         for i in range(1, 11):
             self.progressBar.setValue(i)
