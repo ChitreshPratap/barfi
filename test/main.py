@@ -43,5 +43,5 @@ def splashScreenLoadEx():
 if __name__ == '__main__':
     # splashScreenDarkDemoEx()
     # splashScreenTransparentEx()
-    # splashScreenGrowingEx()
-    splashScreenLoadEx()
+    splashScreenGrowingEx()
+    # splashScreenLoadEx()

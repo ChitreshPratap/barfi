@@ -4,26 +4,38 @@ from PyQt5 import QtGui, QtWidgets, QtCore
 from PyQt5.QtCore import Qt, QPropertyAnimation, QRect
 from PyQt5.QtWidgets import QApplication, QDesktopWidget
 from barfy.chitrapat.SplashScreen_Growing import SplashScreen_Growing
+from barfy.chitrapat.TextBarfy import TextBarfy
+
 
 class SplashScreen_GrowingEx(SplashScreen_Growing):
 
     def __init__(self,app=None,timeoutSeconds:int=4,
-                appIconPath = r"C:\Users\DELL\Desktop\calendarPng.png",
+
+                appIconPath = r"path/to/app/icon.png",
+
                 appTitle:str="App Title",
                 appTitleFontSize:int=58,
+                appTitleFontWeight=600,
                 appTitleFontColor = "#2914c6",
+                appTitleFontFamily="MS Shell Dlg 2",
+
                 appTagLine = "App Tag Line",
                 appTagLineFontSize:int = 16,
+                appTagLineFontWeight: int = 200,
                 appTagLineFontColor = "#2111ff",
+                appTagLineFontFamily="MS Shell Dlg 2",
                 initialWidth = 10,
                 initialHeight = 10,
                 finalWidth = 240
                 ):
         super(SplashScreen_GrowingEx, self).__init__()
-        appTitleFontSize=str(appTitleFontSize)
-        appTagLineFontSize=str(appTagLineFontSize)
 
-        appBackgroundPath="C:/Users/DELL/Downloads/bgImg.png"
+        appTitleFontSize=str(appTitleFontSize)
+        appTitleFontWeight=str(appTitleFontWeight)
+
+        appTagLineFontSize=str(appTagLineFontSize)
+        appTagLineFontWeight=str(appTagLineFontWeight)
+
 
         self._labelAppIcon = QtWidgets.QLabel(self)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
@@ -31,15 +43,19 @@ class SplashScreen_GrowingEx(SplashScreen_Growing):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self._labelAppIcon.sizePolicy().hasHeightForWidth())
         self._labelAppIcon.setSizePolicy(sizePolicy)
-        self._labelAppIcon.setMinimumSize(QtCore.QSize(40, 40))
+        self._labelAppIcon.setMinimumSize(QtCore.QSize(initialWidth, initialHeight))
         self._labelAppIcon.setAutoFillBackground(False)
         self._labelAppIcon.setText("")
         self._labelAppIcon.setScaledContents(True)
         self._labelAppIcon.setAlignment(QtCore.Qt.AlignCenter)
         self._labelAppIcon.setObjectName("_labelAppIcon")
 
-        self._labelAppName.setText("<html><head/><body><p><span style=\" font-size:{appTitleFontSize}pt; font-weight:600; color:{appTitleFontColor};\">{appTitle}</span></p></body></html>".format(appTitleFontSize=appTitleFontSize,appTitleFontColor=appTitleFontColor,appTitle=appTitle))
-        self._labelTagLine.setText( "<html><head/><body><p><span style=\" font-size:{appTagLineFontSize}pt; font-style:italic; color:{appTagLineFontColor};\">{appTagLine}</span></p></body></html>".format(appTagLineFontSize=appTagLineFontSize,appTagLineFontColor=appTagLineFontColor,appTagLine=appTagLine))
+
+        textBarfyTitle=TextBarfy(title=appTitle,fontSize=appTitleFontSize,fontColor=appTitleFontColor,fontWeight=appTitleFontWeight,fontFamily=appTitleFontFamily)
+        textBarfyTagLine = TextBarfy(title=appTagLine, fontSize=appTagLineFontSize, fontColor=appTagLineFontColor,fontWeight=appTagLineFontWeight, fontFamily=appTagLineFontFamily)
+
+        self._labelAppName.setText(textBarfyTitle.getHtmlStyleFormat())
+        self._labelTagLine.setText(textBarfyTagLine.getHtmlStyleFormat())
 
         finalHeight=int(finalWidth/int((initialWidth/initialHeight)))
         initialPositionX=int((self.geometry().width()/2)-(initialWidth/2))

@@ -4,21 +4,29 @@ import time
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QDesktopWidget
-
-from barfy.chitrapat.SplashConfig import SplashConfig
 from barfy.chitrapat.SplashScreen_Dark import SplashScreen_Dark
+from barfy.chitrapat.TextBarfy import TextBarfy
+
 
 class SplashScreen_DarkEx(SplashScreen_Dark):
     
     def __init__(self,app=None,timeoutSeconds:int=10,
-                 appIconPath:str="",
+
+                 appIconPath:str="path/to/the/app/icon.png",
                  appIconSize:tuple=(180,70),
+
                  appTitle: str = "App Title",
+                 appTitleFontWeight=600,
                  appTitleFontSize: int = 36,
                  appTitleFontColor="#ffffff",
+                 appTitleFontFamily="MS Shell Dlg 2",
+
                  appTagLine="App Tag Line",
                  appTagLineFontSize: int = 18,
+                 appTagLineFontWeight: int = 200,
                  appTagLineFontColor="#bfbfbf",
+                 appTagLineFontFamily="MS Shell Dlg 2",
+
                  progressBarColor="rgb(1,136,166)",
                  appBackgroundColor="rgb(54, 43, 46)"
                  ):
@@ -28,14 +36,19 @@ class SplashScreen_DarkEx(SplashScreen_Dark):
         #     splashConfig=SplashConfig()
         #     splashConfig.setAppTitle("App Title").setAppTagLine("Application Tag Line").setCompanyName("Company Name")
 
-        title=appTitle
-        titleDesc=appTagLine
         appIconPath=appIconPath
         appTitleFontSize=str(appTitleFontSize)
-        appTagLineFontSize=str(appTagLineFontSize)
+        appTitleFontWeight = str(appTitleFontWeight)
 
-        self.label_2.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:{appTitleFontSize}pt; font-weight:600; color:{appTitleFontColor};\">{appName}</span></p></body></html>".format(appName=title,appTitleFontSize=appTitleFontSize,appTitleFontColor=appTitleFontColor))
-        self.label_3.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:{appTagLineFontSize}pt; text-decoration: underline; color:{appTagLineFontColor};\">{appTagLine}</span></p></body></html>".format(appTagLine=titleDesc,appTagLineFontSize=appTagLineFontSize,appTagLineFontColor=appTagLineFontColor))
+        appTagLineFontSize=str(appTagLineFontSize)
+        appTagLineFontWeight=str(appTagLineFontWeight)
+
+        textBarfyTitle = TextBarfy(title=appTitle, fontSize=appTitleFontSize, fontColor=appTitleFontColor,fontWeight=appTitleFontWeight, fontFamily=appTitleFontFamily)
+        textBarfyTagLine = TextBarfy(title=appTagLine, fontSize=appTagLineFontSize, fontColor=appTagLineFontColor,fontWeight=appTagLineFontWeight, fontFamily=appTagLineFontFamily)
+
+        self.label_2.setText(textBarfyTitle.getHtmlStyleFormat())
+        self.label_3.setText(textBarfyTagLine.getHtmlStyleFormat())
+
         appIconPixMap=QtGui.QPixmap(appIconPath)
         self.label.setPixmap(appIconPixMap)
         self.label.setMinimumSize(QtCore.QSize(appIconSize[0], appIconSize[1]))

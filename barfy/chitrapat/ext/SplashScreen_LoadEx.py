@@ -12,7 +12,7 @@ class SplashScreen_LoadEx(SplashScreen_Load):
 
     def __init__(self,app=None,timeoutSeconds:int=10,
 
-                 appIconPath:str=r"C:\Users\DELL\Downloads\bgImg.png",
+                 appIconPath:str=r"path/to/application/icon.png",
                  appIconSize:tuple=(120,120),
 
                  appTitle: str = "App Title",
@@ -27,7 +27,7 @@ class SplashScreen_LoadEx(SplashScreen_Load):
                  appTagLineFontColor="#00007f",
                  appTagLineFontFamily="MS Shell Dlg 2",
 
-                 companyIconPath:str=r"C:\Users\DELL\Downloads\bgImg.png",
+                 companyIconPath:str=r"path/to/company/icon.png",
                  companyIconSize:tuple=(40,40),
 
                  companyName:str="Company Name",
@@ -48,7 +48,7 @@ class SplashScreen_LoadEx(SplashScreen_Load):
                  copyrightFontFamily: str = "MS Shell Dlg 2",
                  copyrightFontWeight: int = 0,
 
-                 loaderGifPath:str=r"C:\Users\DELL\Downloads\loaderGif.gif",
+                 loaderGifPath:str=r"path/to/loader/transparentloader.gif",
                  loaderGifSize:tuple=(100,100)
 
                  # progressBarColor="rgb(1,136,166)",
