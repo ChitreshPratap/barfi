@@ -1,5 +1,5 @@
 # barfy
-## version 1.0.0
+## version 1.0.1
 
 This is python package is used to for different sweet splash screens. 
 This package uses <b>PyQt5</b> and is application only for the applications,
@@ -85,8 +85,7 @@ Example 4:
 
 </code>
 
-
 <ul><h4>Old Versions<h4>
-    <li><a href="https://github.com/ChitreshPratap/barfy/blob/main/README_V1.0.0.md">barfy v0.0.1</a></li>
+    <li><a href="https://github.com/ChitreshPratap/barfy/blob/main/README_V1.0.0.md">barfy v1.0.0</a></li>
 </ul>
 
